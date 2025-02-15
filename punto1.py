@@ -1,98 +1,98 @@
 #cifrado de letra#
 
-array="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
-clave=("A,23")
+#array="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+#clave=("A,23")
 
-def alfabeto(clave,C):
+#def alfabeto(clave,C):
 
-    idx = array.index(C) 
-    letracif=array[(idx+clave%len(array))]
-    return letracif
+#    idx = array.index(C) 
+#    letracif=array[(idx+clave%len(array))]
+#    return letracif
 
 #-----------------------------------------------------#
 
 #Cifrado de mensaje#
 
-array = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+#array = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
 
-def alfabeto(clave, C):
-    idx = array.index(C)
-    letracif = array[(idx + clave) % len(array)]
-    return letracif
+#def alfabeto(clave, C):
+#    idx = array.index(C)
+#    letracif = array[(idx + clave) % len(array)]
+#    return letracif
 
-def cifrar_mensaje(clave, mensaje):
-    mensaje_cifrado = ""
-    for letra in mensaje:
-        if letra in array:
-            mensaje_cifrado += alfabeto(clave, letra)
-        else:
-            mensaje_cifrado += letra  # Si la letra no está en el alfabeto, se añade tal cual
-    return mensaje_cifrado
+#def cifrar_mensaje(clave, mensaje):
+#    mensaje_cifrado = ""
+#    for letra in mensaje:
+#        if letra in array:
+#            mensaje_cifrado += alfabeto(clave, letra)
+#        else:
+#            mensaje_cifrado += letra  # Si la letra no está en el alfabeto, se añade tal cual
+#    return mensaje_cifrado
 
-mensaje = "ENELCIELOAZULDEUNDIACLAROBAILANLOSSUEÑOSLIBRESYRAROSCONELVIENTOSUSURRANSECRETOSENCADARINCONNUEVOSRETOS"
-clave = 23
+#mensaje = "ENELCIELOAZULDEUNDIACLAROBAILANLOSSUEÑOSLIBRESYRAROSCONELVIENTOSUSURRANSECRETOSENCADARINCONNUEVOSRETOS"
+#clave = 23
 
 #-----------------------------------------------------#
 
-#descifrado de mensaje#
+#descifrado de mensaje
 
-array = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
-clave = 23
-mensaje = "ENELCIELOAZULDEUNDIACLAROBAILANLOSSUEÑOSLIBRESYRAROSCONELVIENTOSUSURRANSECRETOSENCADARINCONNUEVOSRETOS"
+#array = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+#clave = 23
+#mensaje = "ENELCIELOAZULDEUNDIACLAROBAILANLOSSUEÑOSLIBRESYRAROSCONELVIENTOSUSURRANSECRETOSENCADARINCONNUEVOSRETOS"
 
-def descifrar(clave, mensaje):
-    array = "mensaje"
-    s = ""
-    for i in mensaje:
-        if i in array:
-            idx = array.index(i)
-            frasecif = array[(idx - clave) % len(array)]
-            s += frasecif
-        else:
-            s += i
-    return s
+#def descifrar(clave, mensaje):
+#    array = "mensaje"
+#    s = ""
+#    for i in mensaje:
+#        if i in array:
+#            idx = array.index(i)
+#            frasecif = array[(idx - clave) % len(array)]
+#            s += frasecif
+#        else:
+#            s += i
+#    return s
 
 #-----------------------------------------------------#
 
 #cifrado de mensaje hola#
 
-array = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-clave = 3
-palabra = "HOLA"
+#array = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#clave = 3
+#palabra = "HOLA"
 
-def alfabeto(clave, letra):
-    posicion = array.index(letra)
-    return array[(posicion + clave) % len(array)]
+#def alfabeto(clave, letra):
+#    posicion = array.index(letra)
+#    return array[(posicion + clave) % len(array)]
 
-def cifrar_palabra(clave, mensaje):
-    palabra_cifrada = ""
-    for letra in mensaje:
-        if letra in array:
-            palabra_cifrada += alfabeto(clave, letra)
-        else:
-            palabra_cifrada += letra  
-    return palabra_cifrada
+#def cifrar_palabra(clave, mensaje):
+#    palabra_cifrada = ""
+#    for letra in mensaje:
+#        if letra in array:
+#            palabra_cifrada += alfabeto(clave, letra)
+#        else:
+#            palabra_cifrada += letra  
+#    return palabra_cifrada
 
 #-----------------------------------------------------#
 
 #descifrado de mensaje cde#
 
-array = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-clave = 5
-mensaje = "CDE"
+#array = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#clave = 5
+#mensaje = "CDE"
 
-def alfabeto_descifrar(clave, letra):
-    posicion = array.index(letra)
-    return array[(posicion - clave) % len(array)]
+#def alfabeto_descifrar(clave, letra):
+#    posicion = array.index(letra)
+#    return array[(posicion - clave) % len(array)]
 
-def descifrar_mensaje(clave, mensaje):
-    mensaje_descifrado = ""
-    for letra in mensaje:
-        if letra in array:
-            mensaje_descifrado += alfabeto_descifrar(clave, letra)
-        else:
-            mensaje_descifrado += letra  
-    return mensaje_descifrado
+#def descifrar_mensaje(clave, mensaje):
+#    mensaje_descifrado = ""
+#    for letra in mensaje:
+#        if letra in array:
+#            mensaje_descifrado += alfabeto_descifrar(clave, letra)
+#        else:
+#            mensaje_descifrado += letra  
+#    return mensaje_descifrado
 
 #-----------------------------------------------------#
 

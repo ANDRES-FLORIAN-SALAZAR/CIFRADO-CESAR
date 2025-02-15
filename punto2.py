@@ -21,22 +21,22 @@
 
 #Descifrado de mensaje#
 
-#array = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-#clave = 5
-#mensaje = "CDE"
+array = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+clave = 5
+mensaje = "CDE"
 
-#def alfabeto_descifrar(clave, letra):
-#    posicion = array.index(letra)
-#    return array[(posicion - clave) % len(array)]
+def alfabeto_descifrar(clave, letra):
+    posicion = array.index(letra)
+    return array[(posicion - clave) % len(array)]
 
-#def descifrar_mensaje(clave, mensaje):
-#    mensaje_descifrado = ""
-#    for letra in mensaje:
-#        if letra in array:
-#            mensaje_descifrado += alfabeto_descifrar(clave, letra)
-#        else:
-#            mensaje_descifrado += letra  
-#    return mensaje_descifrado
+def descifrar_mensaje(clave, mensaje):
+    mensaje_descifrado = ""
+    for letra in mensaje:
+        if letra in array:
+            mensaje_descifrado += alfabeto_descifrar(clave, letra)
+        else:
+            mensaje_descifrado += letra  
+    return mensaje_descifrado
 
 #-----------------------------------------------------#
 
@@ -65,7 +65,7 @@
 
 array = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
 clave = 3
-palabra = "HOLA"
+mensaje = "¡HOLA MUNDO!"
 
 def alfabeto(clave, letra):
     posicion = array.index(letra)
@@ -76,64 +76,67 @@ def cifrar_palabra(clave, mensaje):
     for letra in mensaje:
         if letra.upper() in array.upper():
             letra_array = array[array.upper().index(letra.upper())]
-            palabra_cifrada += alfabeto(clave, letra_array)
-        else:
-            palabra_cifrada += letra
-    return palabra_cifrada.upper()
-
-#-----------------------------------------------------#
-
-# Descifrado del mensaje intercalado
-
-array = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
-clave = 5
-mensaje = "CDE"
-
-def alfabeto_descifrar(clave, letra):
-    posicion = array.index(letra)
-    return array[(posicion - clave * 2) % len(array)]
-
-def descifrar_mensaje(clave, mensaje):
-    mensaje_descifrado = ""
-    for letra in mensaje:
-        if letra in array:
-            mensaje_descifrado += alfabeto_descifrar(clave, letra)
-        else:
-            mensaje_descifrado += letra  
-    return mensaje_descifrado
-
-#-----------------------------------------------------#
-
-# Cifrado de mensaje ¡HOLA MUNDO! intercalado
-
-array = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
-clave = 3
-mensaje = "¡HOLA MUNDO!"
-
-def alfabeto(clave, letra):
-    posicion = array.index(letra)
-    return array[(posicion + clave * 2) % len(array)]
-
-def cifrar_palabra(mensaje):
-    palabra_cifrada = ""
-    for letra in mensaje:
-        if letra in array:
-            palabra_cifrada += alfabeto(clave, letra)
+            if letra.isupper():
+                palabra_cifrada += alfabeto(clave, letra_array).upper()
+            else:
+                palabra_cifrada += alfabeto(clave, letra_array).lower()
         else:
             palabra_cifrada += letra  
     return palabra_cifrada
 
 #-----------------------------------------------------#
 
+# Descifrado del mensaje intercalado
+
+#array = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+#clave = 5
+#mensaje = "CDE"
+
+#def alfabeto_descifrar(clave, letra):
+#    posicion = array.index(letra)
+#    return array[(posicion - clave * 2) % len(array)]
+
+#def descifrar_mensaje(clave, mensaje):
+#    mensaje_descifrado = ""
+#    for letra in mensaje:
+#        if letra in array:
+#            mensaje_descifrado += alfabeto_descifrar(clave, letra)
+#        else:
+#            mensaje_descifrado += letra  
+#    return mensaje_descifrado
+
+#-----------------------------------------------------#
+
+# Cifrado de mensaje ¡HOLA MUNDO! intercalado
+
+#array = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+#clave = 3
+#mensaje = "¡HOLA MUNDO!"
+
+#def alfabeto(clave, letra):
+#    posicion = array.index(letra)
+#    return array[(posicion + clave * 2) % len(array)]
+
+#def cifrar_palabra(mensaje):
+#    palabra_cifrada = ""
+#    for letra in mensaje:
+#        if letra in array:
+#            palabra_cifrada += alfabeto(clave, letra)
+#        else:
+#            palabra_cifrada += letra  
+#    return palabra_cifrada
+
+#-----------------------------------------------------#
+
 # Cifrar palabra y simbolos
 
-#array = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'\",.<>?/~`"
+#array = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz!@#$%^&*()_+-=[]{}|;:'\",.<>?/~`"
 #clave = 3
 #mensaje = "HOLA"
 
 #def alfabeto(clave, letra):
 #    posicion = array.index(letra)
-#    return array[(posicion + clave) % len(array)]
+#    return array[(posicion + clave*2) % len(array)]
 
 #def cifrar_palabra(mensaje, clave):
 #    palabra_cifrada = ""
@@ -148,43 +151,43 @@ def cifrar_palabra(mensaje):
 
 # Descifrar el mensaje y simbolos
 
-#array = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'\",.<>?/~`"
-#clave = 5
-#mensaje = "CDE"
+array = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz!@#$%^&*()_+-=[]{}|;:'\",.<>?/~`"
+clave = 5
+mensaje = "CDE"
 
-#def alfabeto_descifrar(clave, letra):
-#    posicion = array.index(letra)
-#    return array[(posicion - clave) % len(array)]
+def alfabeto_descifrar(clave, letra):
+    posicion = array.index(letra)
+    return array[(posicion - clave) % len(array)]
 
-#def descifrar_mensaje(clave, mensaje):
-#    mensaje_descifrado = ""
-#    for letra in mensaje:
-#        if letra in array:
-#            mensaje_descifrado += alfabeto_descifrar(clave, letra)
-#        else:
-#            mensaje_descifrado += letra  
-#    return mensaje_descifrado
+def descifrar_mensaje(clave, mensaje):
+    mensaje_descifrado = ""
+    for letra in mensaje:
+        if letra in array:
+            mensaje_descifrado += alfabeto_descifrar(clave, letra)
+        else:
+            mensaje_descifrado += letra  
+    return mensaje_descifrado
 
 #-----------------------------------------------------#
 
 # Cifrar el mensaje y simbolos
 
-#array = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:'\",.<>?/~`"
-#mensaje = "¡HOLA MUNDO!"
-#clave = 3
+array = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz!@#$%^&*()_+-=[]{}|;:'\",.<>?/~`"
+mensaje = "¡HOLA MUNDO!"
+clave = 3
 
-#def alfabeto(clave, letra):
-#    posicion = array.index(letra)
-#    return array[(posicion + clave) % len(array)]
+def alfabeto(clave, letra):
+    posicion = array.index(letra)
+    return array[(posicion + clave*2) % len(array)]
 
-#def cifrar_palabra(mensaje):
-#    palabra_cifrada = ""
-#    for letra in mensaje:
-#        if letra in array:
-#            palabra_cifrada += alfabeto(clave, letra)
-#        else:
-#            palabra_cifrada += letra  
-#    return palabra_cifrada
+def cifrar_palabra(mensaje):
+    palabra_cifrada = ""
+    for letra in mensaje:
+        if letra in array:
+            palabra_cifrada += alfabeto(clave, letra)
+        else:
+            palabra_cifrada += letra  
+    return palabra_cifrada
 
 #-----------------------------------------------------#
 
@@ -197,8 +200,8 @@ def cifrar_palabra(mensaje):
 #print(mensaje_descifrado)
 
 # Cifrado de mensaje ¡HOLA MUNDO!
-#mensaje_cifrado = cifrar_palabra(mensaje)
-#print(mensaje_cifrado)
+#cifrado = cifrar_palabra(clave, mensaje)
+#print(cifrado)
 
 # Cifrado de palabra intercalada
 #cifrado = cifrar_palabra(clave, palabra)
@@ -213,13 +216,13 @@ def cifrar_palabra(mensaje):
 #print(cifrar_palabra)
 
 # Cifrar palabra y simbolos
-#mensaje_cifrado = cifrar_palabra(mensaje, clave)
-#print(mensaje_cifrado)
+#cifrado = cifrar_palabra(mensaje, clave)
+#print(cifrado)
 
 # Descifrar el mensaje y simbolos
 #mensaje_descifrado = descifrar_mensaje(clave, mensaje)
 #print(mensaje_descifrado)
 
 # Cifrar el mensaje y simbolos
-#mensaje_cifrado = cifrar_palabra(mensaje)
-#print(mensaje_cifrado)
+#cifrado = cifrar_palabra(mensaje)
+#print(cifrado)
